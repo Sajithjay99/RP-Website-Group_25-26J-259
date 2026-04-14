@@ -2,80 +2,47 @@ import React, { useState } from "react";
 import ResourceCard from "../components/ResourceCard";
 import "../styles/ResourceCard.css";
 
-/**
- * Presentation slides — each entry maps to a Google Drive PPTX / Slides link.
- * Replace the `driveUrl` values with real links once available.
- */
 const SLIDES = [
   {
     id: "slide-1",
-    title: "Project Kick-off Presentation",
-    date: "August 2024",
+    title: "Proposal Presentation",
+    date: "September 2025",
     description:
       "Initial presentation introducing the research topic, problem statement, proposed solution, and team roles to supervisors and stakeholders.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_1/view",
+    driveUrl: "https://docs.google.com/presentation/d/1IIPa2txKDyRTZdFPXlOk8rS2Q4nI2kEm/edit?slide=id.p1#slide=id.p1",
   },
   {
     id: "slide-2",
-    title: "Literature Review Presentation",
-    date: "September 2024",
+    title: "Progress Presentation-I",
+    date: "Januarty 2026",
     description:
-      "Slides covering a thorough review of existing research, related work, and identified research gaps in the domain.",
+      "Project update presentation reporting over 50% implementation progress for the multi-modal mental health detection system.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_2/view",
+    driveUrl: "https://drive.google.com/file/d/1XZUuQAXDLVNPs3W2EISCzRAazhSNA-9-/view",
   },
   {
     id: "slide-3",
-    title: "Progress Review – Phase 1",
-    date: "November 2024",
+    title: "Progress Presentation-II",
+    date: "March 2026",
     description:
-      "Phase 1 progress review presentation detailing data collection, preprocessing steps, and initial model prototypes demonstrated to the supervisory panel.",
+      "Project update presentation reporting over 90% implementation progress for the multi-modal mental health detection system.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_3/view",
+    driveUrl: "https://drive.google.com/file/d/1ou-MjWAvDvTqYGvO4UwYON3oaKUxMOWN/view",
   },
+
   {
     id: "slide-4",
-    title: "Individual Presentation – Sajith",
-    date: "December 2024",
+    title: "Final Presentation",
+    date: "April 2026",
     description:
-      "Individual viva presentation highlighting personal research contributions, methodology choices, and preliminary findings.",
-    author: "Sajith Jayawardena",
-    type: "individual",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_4/view",
-  },
-  {
-    id: "slide-5",
-    title: "Mid-Year Review Presentation",
-    date: "January 2025",
-    description:
-      "Mid-year review slides covering system architecture overview, model benchmarking results, and updated project timeline presented to the review board.",
+      "TO DO:Final project presentation slides summarising the complete research journey, results, contributions, conclusions, and recommendations for future work.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_5/view",
-  },
-  {
-    id: "slide-6",
-    title: "Individual Presentation – Member 2",
-    date: "February 2025",
-    description:
-      "Personal viva presentation for the second team member covering experimental design, data augmentation techniques, and evaluation strategies.",
-    author: "Member 2",
-    type: "individual",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_6/view",
-  },
-  {
-    id: "slide-7",
-    title: "Final Defense Presentation",
-    date: "April 2025",
-    description:
-      "Final project defense slides summarising the complete research journey, results, contributions, conclusions, and recommendations for future work.",
-    author: "Group",
-    type: "group",
-    driveUrl: "https://drive.google.com/file/d/YOUR_SLIDE_ID_7/view",
+    driveUrl: "",
   },
 ];
 
@@ -88,31 +55,38 @@ function Slides() {
     activeFilter === "All"
       ? SLIDES
       : SLIDES.filter((s) =>
-          activeFilter === "Group" ? s.type === "group" : s.type === "individual"
-        );
+        activeFilter === "Group" ? s.type === "group" : s.type === "individual"
+      );
+
+  const groupCount = SLIDES.filter((s) => s.type === "group").length;
+  const individualCount = SLIDES.filter((s) => s.type === "individual").length;
 
   return (
     <section className="resource-page" id="slides-page">
       <div className="container">
-        {/* Page header */}
+
+        {/* ── Page Header ── */}
         <header className="resource-page-header">
           <p className="resource-page-eyebrow">
-            {/* Presentation icon */}
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" aria-hidden="true">
               <rect x="2" y="3" width="20" height="14" rx="2" />
               <path d="M8 21h8M12 17v4" />
             </svg>
             Presentation Slides
           </p>
+
           <h1 className="resource-page-title">Past Presentations</h1>
+
           <p className="resource-page-subtitle">
             Slide decks from all group and individual presentations conducted
             throughout the research project. Click <em>View Slides</em> to open
-            them on Google Drive.
+            on Google Drive.
           </p>
+
+          <div className="header-divider" />
         </header>
 
-        {/* Filter pills */}
+        {/* ── Filter Pills ── */}
         <div className="filter-bar" role="group" aria-label="Filter slides">
           {FILTERS.map((f) => (
             <button
@@ -126,12 +100,18 @@ function Slides() {
           ))}
         </div>
 
-        {/* Cards grid */}
+        {/* Results count */}
+        <p className="results-label">
+          Showing <strong>{filtered.length}</strong> of {SLIDES.length} presentations
+        </p>
+
+        {/* ── Cards Grid ── */}
         {filtered.length > 0 ? (
           <div className="resource-grid">
-            {filtered.map((slide) => (
+            {filtered.map((slide, i) => (
               <ResourceCard
                 key={slide.id}
+                index={i}
                 title={slide.title}
                 date={slide.date}
                 description={slide.description}
@@ -144,6 +124,9 @@ function Slides() {
           </div>
         ) : (
           <div className="resource-empty">
+            <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
             <p>No slides found for this filter.</p>
           </div>
         )}
