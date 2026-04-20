@@ -1,11 +1,142 @@
-import React from 'react'
+import React from 'react';
 
 function AboutUs() {
-  return (
-    <div>
-      
+  const supervisors = [
+    {
+      name: "Ms. Lochana Rajamanthri",
+      role: "Supervisor",
+      institute: "Sri Lanka Institute of Information Technology",
+      faculty: "SLIIT Business School",
+      email: "lochana.r@sliit.lk",
+      image: "/images/supervisors/lochana.jpg" // ඔබේ පින්තූරය මෙතැනට එක් කරන්න
+    },
+    {
+      name: "Ms. Sasini Hathurusinghe",
+      role: "Co-Supervisor",
+      institute: "Sri Lanka Institute of Information Technology",
+      faculty: "Department of Information Technology",
+      position: "Assistant Lecturer",
+      image: "/images/supervisors/sasini.jpg"
+    }
+  ];
+
+  const members = [
+    {
+      name: "Jayasooriya H.M.S.S.M.",
+      role: "Group Leader",
+      institute: "Sri Lanka Institute of Information Technology",
+      dept: "Information Technology",
+      image: "/images/members/leader.jpg"
+    },
+    {
+      name: "Dissanayaka R.M.L.R.",
+      role: "Group Member",
+      institute: "Sri Lanka Institute of Information Technology",
+      dept: "Information Technology",
+      image: "/images/members/member1.jpg"
+    },
+    {
+      name: "Jayasuriya R.R.S.A.",
+      role: "Group Member",
+      institute: "Sri Lanka Institute of Information Technology",
+      dept: "Information Technology",
+      image: "/images/members/member2.jpg"
+    },
+    {
+      name: "Wanasekara W.A.O.H.",
+      role: "Group Member",
+      institute: "Sri Lanka Institute of Information Technology",
+      dept: "Information Technology",
+      image: "/images/members/member3.jpg"
+    }
+  ];
+
+  const Card = ({ person, isStudent }) => (
+    <div style={{
+      background: 'var(--color-card-bg)',
+      border: '1px solid var(--color-border-light)',
+      borderRadius: '12px',
+      overflow: 'hidden',
+      textAlign: 'left',
+      transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+      cursor: 'default'
+    }}
+    onMouseEnter={(e) => {
+      e.currentTarget.style.transform = 'translateY(-5px)';
+      e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.2)';
+    }}
+    onMouseLeave={(e) => {
+      e.currentTarget.style.transform = 'translateY(0)';
+      e.currentTarget.style.boxShadow = 'none';
+    }}>
+      <img 
+        src={person.image} 
+        alt={person.name} 
+        style={{ width: '100%', height: '280px', objectFit: 'cover' }} 
+      />
+      <div style={{ padding: '20px' }}>
+        <h3 style={{ fontSize: '1.25rem', marginBottom: '8px', color: 'var(--color-text-primary)' }}>{person.name}</h3>
+        <span style={{ 
+          background: isStudent ? 'var(--color-primary-green)' : '#4a5568', 
+          color: 'white', 
+          padding: '3px 10px', 
+          borderRadius: '4px', 
+          fontSize: '0.8rem',
+          fontWeight: 'bold',
+          display: 'inline-block',
+          marginBottom: '15px'
+        }}>{person.role}</span>
+        
+        <div style={{ fontSize: '0.9rem', color: 'var(--color-text-secondary)', lineHeight: '1.6' }}>
+          {isStudent && <p style={{ fontWeight: '600' }}>Undergraduate</p>}
+          <p>{person.faculty || person.institute}</p>
+          <p style={{ fontWeight: 'bold', marginTop: '10px', color: 'var(--color-text-primary)' }}>
+            {isStudent ? "Department" : "Position"}
+          </p>
+          <p>{isStudent ? person.dept : (person.position || "Lecturer")}</p>
+        </div>
+
+        <div style={{ marginTop: '20px', display: 'flex', gap: '15px', borderTop: '1px solid var(--color-border-light)', paddingTop: '12px' }}>
+          {person.email ? (
+            <a href={`mailto:${person.email}`} style={{ color: 'var(--color-primary-green)', fontSize: '0.85rem', textDecoration: 'none', fontWeight: '600' }}>
+              📧 E-Mail
+            </a>
+          ) : (
+            <span style={{ color: 'var(--color-text-tertiary)', fontSize: '0.85rem' }}>Contact via SLIIT</span>
+          )}
+          {isStudent && <span style={{ color: '#0077b5', fontSize: '0.85rem', cursor: 'pointer' }}>🔗 LinkedIn</span>}
+        </div>
+      </div>
     </div>
-  )
+  );
+
+  return (
+    <section className="page-section">
+      <div className="container">
+        <p style={{ color: 'var(--color-primary-green)', fontWeight: 'bold', letterSpacing: '1px' }}>ABOUT US</p>
+        <h1 style={{ fontSize: '2.5rem', marginBottom: '50px' }}>Meet Our Team !</h1>
+
+        {/* Supervisors Section */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', 
+          gap: '30px',
+          marginBottom: '80px'
+        }}>
+          {supervisors.map((p, i) => <Card key={i} person={p} isStudent={false} />)}
+        </div>
+
+        {/* Students Section */}
+        <div style={{ 
+          display: 'grid', 
+          gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
+          gap: '25px'
+        }}>
+          {members.map((p, i) => <Card key={i} person={p} isStudent={true} />)}
+        </div>
+      </div>
+    </section>
+  );
 }
 
-export default AboutUs
+export default AboutUs;
