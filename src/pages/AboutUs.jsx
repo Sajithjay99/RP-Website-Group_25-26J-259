@@ -46,6 +46,7 @@ function AboutUs() {
       institute: "Sri Lanka Institute of Information Technology",
       dept: "Information Technology",
       email: "akashsasanka480@gmail.com",
+      linkedin: "www.linkedin.com/in/sasanka-akash-08b44b339",
       image: "/images/members/member2.jpg"
     },
     {
@@ -54,6 +55,7 @@ function AboutUs() {
       institute: "Sri Lanka Institute of Information Technology",
       dept: "Information Technology",
       email: "oshanhavishkaw@gmail.com",
+      linkedin: "www.linkedin.com/in/oshan-wanasekara-530496309",
       image: "/images/members/member3.jpg"
     }
   ];

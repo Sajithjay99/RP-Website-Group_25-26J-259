@@ -47,17 +47,19 @@ function Milestones() {
       marks: 19,
     },
     {
+      date: "April 2026",
+      title: "Project Website",
+      desc: "The public-facing research website showcasing all project assets.",
+      marks: 2,
+    },
+    
+    {
       date: "May 2026",
       title: "Final Presentation & VIVA",
       desc: "Final defense and oral examination of the entire project.",
       marks: 20,
     },
-    {
-      date: "June 2026",
-      title: "Project Website",
-      desc: "The public-facing research website showcasing all project assets.",
-      marks: 2,
-    },
+    
     {
       date: "June 2026",
       title: "Research Logbook",
