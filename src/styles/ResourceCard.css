@@ -1,0 +1,672 @@
+/* ===================================================
+   ResourceCard – Premium animated styles
+   =================================================== */
+
+/* ── Keyframes ── */
+@keyframes fadeSlideUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes shimmer {
+  0%   { background-position: -600px 0; }
+  100% { background-position: 600px 0; }
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(29, 185, 84, 0); }
+  50%       { box-shadow: 0 0 20px 4px rgba(29, 185, 84, 0.18); }
+}
+
+@keyframes rotateBg {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes scanLine {
+  0%   { top: 0%; opacity: 0.6; }
+  100% { top: 105%; opacity: 0; }
+}
+
+@keyframes borderDance {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes ripple {
+  0%   { transform: scale(0); opacity: 0.6; }
+  100% { transform: scale(4); opacity: 0; }
+}
+
+@keyframes eyebrowPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(29,185,84,0.0); }
+  50%       { box-shadow: 0 0 14px 3px rgba(29,185,84,0.25); }
+}
+
+@keyframes titleGradient {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes countUp {
+  from { opacity: 0; transform: scale(0.7); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+@keyframes particleDrift {
+  0%   { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+  33%  { transform: translateY(-30px) translateX(15px) scale(1.1); opacity: 0.8; }
+  66%  { transform: translateY(-15px) translateX(-10px) scale(0.9); opacity: 0.5; }
+  100% { transform: translateY(0) translateX(0) scale(1); opacity: 0.6; }
+}
+
+@keyframes iconBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  30%       { transform: translateY(-6px) scale(1.12); }
+  60%       { transform: translateY(-2px) scale(1.06); }
+}
+
+@keyframes badgePop {
+  0%   { transform: scale(0.6); opacity: 0; }
+  80%  { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+@keyframes lineExpand {
+  from { width: 0; opacity: 0; }
+  to   { width: 100%; opacity: 1; }
+}
+
+/* ── Page wrapper ── */
+.resource-page {
+  padding: 70px 0 100px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient background blobs */
+.resource-page::before,
+.resource-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(90px);
+  opacity: 0.07;
+}
+
+.resource-page::before {
+  width: 500px; height: 500px;
+  background: radial-gradient(circle, #1DB954 0%, transparent 70%);
+  top: -120px; left: -150px;
+  animation: float 8s ease-in-out infinite;
+}
+
+.resource-page::after {
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, #1ed760 0%, transparent 70%);
+  bottom: -100px; right: -100px;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+.resource-page .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Page header ── */
+.resource-page-header {
+  margin-bottom: 54px;
+  text-align: center;
+  animation: fadeSlideUp 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+}
+
+/* Eyebrow pill */
+.resource-page-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-primary-green, #1DB954);
+  background: rgba(29, 185, 84, 0.08);
+  border: 1px solid rgba(29, 185, 84, 0.28);
+  padding: 6px 16px;
+  border-radius: 999px;
+  margin-bottom: 20px;
+  animation: eyebrowPulse 3s ease-in-out infinite;
+  transition: transform 0.2s ease;
+}
+
+.resource-page-eyebrow:hover {
+  transform: scale(1.04);
+}
+
+/* Animated gradient title */
+.resource-page-title {
+  font-size: clamp(2rem, 4.5vw, 3rem);
+  font-weight: 900;
+  line-height: 1.1;
+  margin-bottom: 16px;
+  background: linear-gradient(135deg, #ffffff 0%, #1DB954 45%, #1ed760 65%, #ffffff 100%);
+  background-size: 250% 250%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: titleGradient 5s ease infinite;
+}
+
+.resource-page-subtitle {
+  font-size: 1rem;
+  line-height: 1.85;
+  color: var(--color-text-secondary, #B3B3B3);
+  max-width: 580px;
+  margin: 0 auto;
+  animation: fadeIn 1s 0.3s both;
+}
+
+/* ── Stats row ── */
+.resource-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 28px;
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  text-align: center;
+  animation: countUp 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--color-primary-green, #1DB954);
+  line-height: 1;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: var(--color-text-tertiary, #A7A7A7);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-top: 4px;
+}
+
+/* Divider line */
+.header-divider {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #1DB954, transparent);
+  margin: 22px auto 0;
+  border-radius: 999px;
+  animation: lineExpand 1s 0.5s both;
+}
+
+/* ── Filter pills ── */
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 44px;
+  animation: fadeIn 0.6s 0.4s both;
+}
+
+.filter-pill {
+  position: relative;
+  overflow: hidden;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 8px 22px;
+  border-radius: 999px;
+  border: 1px solid var(--color-border-light, #404040);
+  background: transparent;
+  color: var(--color-text-secondary, #B3B3B3);
+  cursor: pointer;
+  transition: all 0.25s cubic-bezier(0.34, 1.56, 0.64, 1);
+  letter-spacing: 0.03em;
+}
+
+.filter-pill::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(29, 185, 84, 0.15);
+  border-radius: 999px;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.filter-pill:hover::after {
+  transform: scale(1);
+}
+
+.filter-pill:hover {
+  border-color: var(--color-primary-green, #1DB954);
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.filter-pill.active {
+  background: var(--color-primary-green, #1DB954);
+  border-color: var(--color-primary-green, #1DB954);
+  color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 20px rgba(29, 185, 84, 0.35);
+  animation: pulseGlow 2.5s ease-in-out infinite;
+}
+
+/* ── Grid wrapper ── */
+.resource-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 26px;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   CARD — the main attraction
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+.resource-card {
+  position: relative;
+  background: var(--color-card-bg, #181818);
+  border: 1px solid var(--color-border-light, #404040);
+  border-radius: 22px;
+  overflow: hidden;
+  cursor: default;
+
+  /* Entry animation — staggered via inline style */
+  opacity: 0;
+  animation: fadeSlideUp 0.6s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+
+  transition:
+    transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.35s ease,
+    border-color 0.3s ease,
+    background 0.3s ease;
+}
+
+/* Hover lift + glow */
+.resource-card:hover {
+  transform: translateY(-10px) scale(1.01);
+  background: var(--color-card-hover, #1e1e1e);
+  border-color: var(--color-primary-green, #1DB954);
+  box-shadow:
+    0 0 0 1px rgba(29, 185, 84, 0.5),
+    0 0 30px rgba(29, 185, 84, 0.18),
+    0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+/* ── Rotating conic gradient border on hover ── */
+.resource-card::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  border-radius: 24px;
+  background: conic-gradient(
+    from var(--angle, 0deg),
+    transparent 0deg,
+    #1DB954 60deg,
+    #1ed760 90deg,
+    transparent 120deg
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 0;
+  animation: rotateBg 3s linear infinite;
+}
+
+.resource-card:hover::before {
+  opacity: 1;
+}
+
+/* Inner white mask to hide the border gradient inside */
+.resource-card::after {
+  content: "";
+  position: absolute;
+  inset: 1px;
+  border-radius: 22px;
+  background: var(--color-card-hover, #1e1e1e);
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.resource-card:hover::after {
+  opacity: 1;
+}
+
+/* Scan-line shimmer on hover */
+.resource-card .scan-line {
+  position: absolute;
+  left: 0; top: 0;
+  width: 100%;
+  height: 60px;
+  background: linear-gradient(180deg, transparent 0%, rgba(29,185,84,0.06) 50%, transparent 100%);
+  pointer-events: none;
+  opacity: 0;
+  z-index: 2;
+  transition: opacity 0.3s ease;
+}
+
+.resource-card:hover .scan-line {
+  opacity: 1;
+  animation: scanLine 1.8s linear infinite;
+}
+
+/* ── Top accent bar (animated gradient) ── */
+.card-accent-line {
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #1DB954, #1ed760, #00e5ff, #1DB954);
+  background-size: 300% 100%;
+  opacity: 0;
+  position: absolute;
+  top: 0; left: 0;
+  z-index: 3;
+  transition: opacity 0.3s ease;
+  animation: borderDance 3s linear infinite;
+}
+
+.resource-card:hover .card-accent-line {
+  opacity: 1;
+}
+
+/* ── Inner content ── */
+.card-inner {
+  position: relative;
+  z-index: 4;
+  padding: 28px 26px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  height: 100%;
+}
+
+/* ── File icon ── */
+.card-icon {
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), filter 0.3s ease;
+  filter: drop-shadow(0 0 0px rgba(29,185,84,0));
+}
+
+.resource-card:hover .card-icon {
+  transform: scale(1.15) rotate(-5deg);
+  animation: iconBounce 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  filter: drop-shadow(0 0 8px rgba(29,185,84,0.6));
+}
+
+/* ── Header row ── */
+.card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--color-text-primary, #fff);
+  line-height: 1.4;
+  flex: 1;
+  transition: color 0.2s ease;
+}
+
+.resource-card:hover .card-title {
+  color: #fff;
+}
+
+/* ── Type badge ── */
+.card-type-badge {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 4px 11px;
+  border-radius: 999px;
+  white-space: nowrap;
+  animation: badgePop 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card-type-badge:hover {
+  transform: scale(1.08);
+}
+
+.badge-group {
+  background: rgba(29, 185, 84, 0.14);
+  color: var(--color-primary-green, #1DB954);
+  border: 1px solid rgba(29, 185, 84, 0.35);
+  box-shadow: 0 0 8px rgba(29,185,84,0.1);
+}
+
+.badge-individual {
+  background: rgba(130, 170, 255, 0.1);
+  color: #82aaff;
+  border: 1px solid rgba(130, 170, 255, 0.28);
+  box-shadow: 0 0 8px rgba(130,170,255,0.1);
+}
+
+.resource-card:hover .badge-group {
+  box-shadow: 0 0 16px rgba(29,185,84,0.3);
+}
+
+.resource-card:hover .badge-individual {
+  box-shadow: 0 0 16px rgba(130,170,255,0.3);
+}
+
+/* ── Meta row ── */
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.card-date,
+.card-author {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 0.8rem;
+  color: var(--color-text-secondary, #B3B3B3);
+  transition: color 0.2s ease;
+}
+
+.resource-card:hover .card-date,
+.resource-card:hover .card-author {
+  color: #ccc;
+}
+
+.card-date svg,
+.card-author svg {
+  color: var(--color-primary-green, #1DB954);
+  opacity: 0.8;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.resource-card:hover .card-date svg,
+.resource-card:hover .card-author svg {
+  transform: scale(1.15);
+  opacity: 1;
+}
+
+/* ── Description ── */
+.card-description {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: var(--color-text-tertiary, #A7A7A7);
+  flex: 1;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  transition: color 0.2s ease;
+}
+
+.resource-card:hover .card-description {
+  color: #bbb;
+}
+
+/* ── Separator line ── */
+.card-separator {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--color-border-light, #404040), transparent);
+  margin: 2px 0;
+  transition: background 0.3s ease;
+}
+
+.resource-card:hover .card-separator {
+  background: linear-gradient(90deg, transparent, rgba(29,185,84,0.3), transparent);
+}
+
+/* ── Download button ── */
+.card-download-btn {
+  position: relative;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 4px;
+  padding: 11px 24px;
+  border-radius: 50px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: #000;
+  background: var(--color-primary-green, #1DB954);
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  align-self: flex-start;
+  transition:
+    background 0.25s ease,
+    transform 0.25s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.25s ease;
+}
+
+/* Shimmer sweep */
+.card-download-btn::before {
+  content: "";
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255,255,255,0.35) 50%,
+    transparent 100%
+  );
+  transition: left 0.45s ease;
+}
+
+.card-download-btn:hover::before {
+  left: 150%;
+}
+
+/* Ripple */
+.card-download-btn::after {
+  content: "";
+  position: absolute;
+  width: 20px; height: 20px;
+  background: rgba(255,255,255,0.4);
+  border-radius: 50%;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%) scale(0);
+  opacity: 0;
+}
+
+.card-download-btn:active::after {
+  animation: ripple 0.5s ease-out forwards;
+}
+
+.card-download-btn:hover {
+  background: var(--color-primary-green-hover, #1ed760);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(29, 185, 84, 0.5);
+}
+
+.card-download-btn:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Button icon spin direction hint */
+.card-download-btn svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.card-download-btn:hover svg {
+  transform: translateY(2px);
+}
+
+/* ── Empty state ── */
+.resource-empty {
+  text-align: center;
+  padding: 80px 20px;
+  color: var(--color-text-tertiary, #A7A7A7);
+  animation: fadeIn 0.5s ease;
+}
+
+.resource-empty svg {
+  margin-bottom: 16px;
+  opacity: 0.3;
+}
+
+/* ── Page section count label ── */
+.results-label {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--color-text-tertiary, #A7A7A7);
+  margin-bottom: 24px;
+  letter-spacing: 0.05em;
+  animation: fadeIn 0.4s ease;
+}
+
+.results-label strong {
+  color: var(--color-primary-green, #1DB954);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .resource-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  .card-inner {
+    padding: 22px 18px 20px;
+  }
+
+  .resource-page-header {
+    margin-bottom: 36px;
+  }
+
+  .resource-stats {
+    gap: 24px;
+  }
+}
