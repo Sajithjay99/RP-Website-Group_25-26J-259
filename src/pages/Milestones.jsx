@@ -13,19 +13,19 @@ function Milestones() {
     {
       date: "July 2025",
       title: "Project Charter",
-      desc: "Formal document outlining project objectives and stakeholders[cite: 73].",
+      desc: "Formal document outlining project objectives and stakeholders.",
       marks: 0,
     },
     {
       date: "September 2025",
       title: "Proposal Presentation",
-      desc: "Defending the research proposal to a panel of experts[cite: 79].",
+      desc: "Defending the research proposal to a panel of experts.",
       marks: 12,
     },
     {
       date: "December 2025",
       title: "Progress Presentation - I",
-      desc: "Evaluation of the first 50% of project completion and methodology[cite: 80].",
+      desc: "Evaluation of the first 50% of project completion and methodology.",
       marks: 15,
     },
     {
@@ -37,25 +37,25 @@ function Milestones() {
     {
       date: "March 2026",
       title: "Progress Presentation - II",
-      desc: "Demonstration of 90% completion including system implementation[cite: 81].",
+      desc: "Demonstration of 90% completion including system implementation.",
       marks: 18,
     },
     {
       date: "April 2026",
       title: "Final Reports",
-      desc: "Comprehensive documentation of the full research project[cite: 76].",
+      desc: "Comprehensive documentation of the full research project.",
       marks: 19,
     },
     {
       date: "May 2026",
       title: "Final Presentation & VIVA",
-      desc: "Final defense and oral examination of the entire project[cite: 82].",
+      desc: "Final defense and oral examination of the entire project.",
       marks: 20,
     },
     {
       date: "June 2026",
       title: "Project Website",
-      desc: "The public-facing research website showcasing all project assets[cite: 91].",
+      desc: "The public-facing research website showcasing all project assets.",
       marks: 2,
     },
     {
@@ -77,11 +77,15 @@ function Milestones() {
           letterSpacing: '1.5px',
           marginBottom: '8px'
         }}>
-          Project Milestones [cite: 62]
+          Project Milestones
         </p>
-        <h1 style={{ marginBottom: '60px', fontSize: '2.5rem' }}>Timeline in Brief</h1>
+
+        <h1 style={{ marginBottom: '60px', fontSize: '2.5rem' }}>
+          Timeline in Brief
+        </h1>
 
         <div style={{ position: 'relative' }}>
+          
           {/* Center Line */}
           <div style={{ 
             position: 'absolute', 
@@ -112,6 +116,7 @@ function Milestones() {
                   cursor: 'pointer'
                 }}
               >
+                
                 {/* Content Side */}
                 <div style={{ 
                   width: '45%', 
@@ -121,6 +126,7 @@ function Milestones() {
                   transition: 'all 0.3s ease',
                   opacity: activeItem !== null && !isActive ? 0.6 : 1
                 }}>
+                  
                   <span style={{ 
                     background: isActive ? 'var(--color-primary-green)' : 'var(--color-sidebar-bg)', 
                     color: 'white', 
@@ -152,8 +158,9 @@ function Milestones() {
                   
                   <div style={{ marginTop: '18px' }}>
                     <span style={{ fontSize: '0.85rem', fontWeight: '700' }}>
-                      Weightage: {item.marks}% [cite: 63]
+                      Weightage: {item.marks}%
                     </span>
+
                     <div style={{ 
                       width: '100%', 
                       background: 'var(--color-border-light)', 
@@ -171,6 +178,7 @@ function Milestones() {
                       }}></div>
                     </div>
                   </div>
+
                 </div>
 
                 {/* Center Dot */}
@@ -192,6 +200,7 @@ function Milestones() {
                 </div>
 
                 <div style={{ width: '45%', order: isEven ? 3 : 1 }}></div>
+
               </div>
             );
           })}
