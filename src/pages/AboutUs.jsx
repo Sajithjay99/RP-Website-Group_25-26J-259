@@ -46,7 +46,7 @@ function AboutUs() {
       institute: "Sri Lanka Institute of Information Technology",
       dept: "Information Technology",
       email: "akashsasanka480@gmail.com",
-      linkedin: "www.linkedin.com/in/sasanka-akash-08b44b339",
+      linkedin: "https://www.linkedin.com/in/sasanka-akash-08b44b339/",
       image: "/images/members/member2.jpg"
     },
     {
@@ -55,7 +55,7 @@ function AboutUs() {
       institute: "Sri Lanka Institute of Information Technology",
       dept: "Information Technology",
       email: "oshanhavishkaw@gmail.com",
-      linkedin: "www.linkedin.com/in/oshan-wanasekara-530496309",
+      linkedin: "https://www.linkedin.com/in/oshan-wanasekara-530496309/",
       image: "/images/members/member3.jpg"
     }
   ];
@@ -144,7 +144,6 @@ function AboutUs() {
             </span>
           )}
 
-          {/* LinkedIn */}
           {isStudent && person.linkedin && (
             <a 
               href={person.linkedin}
@@ -171,7 +170,6 @@ function AboutUs() {
           Meet Our Team !
         </h1>
 
-        {/* Supervisors */}
         <div style={{ 
           display: 'flex',
           justifyContent: 'center',
@@ -186,7 +184,6 @@ function AboutUs() {
           ))}
         </div>
 
-        {/* Students Section */}
         <div style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', 
