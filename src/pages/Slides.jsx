@@ -11,7 +11,7 @@ const SLIDES = [
       "Initial presentation introducing the research topic, problem statement, proposed solution, and team roles to supervisors and stakeholders.",
     author: "Group",
     type: "group",
-    driveUrl: "https://docs.google.com/presentation/d/1IIPa2txKDyRTZdFPXlOk8rS2Q4nI2kEm/edit?slide=id.p1#slide=id.p1",
+    driveUrl: "https://docs.google.com/presentation/d/1IIPa2txKDyRTZdFPXlOk8rS2Q4nI2kEm/edit?usp=drive_link&ouid=111138872678092402720&rtpof=true&sd=true",
   },
   {
     id: "slide-2",
@@ -21,7 +21,7 @@ const SLIDES = [
       "Project update presentation reporting over 50% implementation progress for the multi-modal mental health detection system.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/1XZUuQAXDLVNPs3W2EISCzRAazhSNA-9-/view",
+    driveUrl: "https://docs.google.com/presentation/d/1XZUuQAXDLVNPs3W2EISCzRAazhSNA-9-/edit?usp=drive_link&ouid=111138872678092402720&rtpof=true&sd=true",
   },
   {
     id: "slide-3",
@@ -31,7 +31,7 @@ const SLIDES = [
       "Project update presentation reporting over 90% implementation progress for the multi-modal mental health detection system.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/1ou-MjWAvDvTqYGvO4UwYON3oaKUxMOWN/view",
+    driveUrl: "https://docs.google.com/presentation/d/1ou-MjWAvDvTqYGvO4UwYON3oaKUxMOWN/edit?usp=drive_link&ouid=111138872678092402720&rtpof=true&sd=true",
   },
 
   {
