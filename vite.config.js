@@ -4,5 +4,5 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
-  base: '/RP-Website-Group_25-26/-259/',
+  base: '/RP-Website-Group_25-26J-259/',
 })
