@@ -1,9 +1,8 @@
 import React from "react";
 
 function AboutUs() {
-  const getImagePath = (path) => {
-    return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
-  };
+  const getImagePath = (path) =>
+    `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
 
   const supervisors = [
     {
@@ -93,17 +92,12 @@ function AboutUs() {
           objectFit: "cover",
           objectPosition: "top center",
           background: "#111",
+          display: "block",
         }}
       />
 
       <div style={{ padding: "20px" }}>
-        <h3
-          style={{
-            fontSize: "1.25rem",
-            marginBottom: "8px",
-            color: "var(--color-text-primary)",
-          }}
-        >
+        <h3 style={{ fontSize: "1.25rem", marginBottom: "8px", color: "var(--color-text-primary)" }}>
           {person.name}
         </h3>
 
@@ -122,23 +116,11 @@ function AboutUs() {
           {person.role}
         </span>
 
-        <div
-          style={{
-            fontSize: "0.9rem",
-            color: "var(--color-text-secondary)",
-            lineHeight: "1.6",
-          }}
-        >
+        <div style={{ fontSize: "0.9rem", color: "var(--color-text-secondary)", lineHeight: "1.6" }}>
           {isStudent && <p style={{ fontWeight: "600" }}>Undergraduate</p>}
           <p>{person.faculty || person.institute}</p>
 
-          <p
-            style={{
-              fontWeight: "bold",
-              marginTop: "10px",
-              color: "var(--color-text-primary)",
-            }}
-          >
+          <p style={{ fontWeight: "bold", marginTop: "10px", color: "var(--color-text-primary)" }}>
             {isStudent ? "Department" : "Position"}
           </p>
 
@@ -189,13 +171,7 @@ function AboutUs() {
   return (
     <section className="page-section">
       <div className="container">
-        <p
-          style={{
-            color: "var(--color-primary-green)",
-            fontWeight: "bold",
-            letterSpacing: "1px",
-          }}
-        >
+        <p style={{ color: "var(--color-primary-green)", fontWeight: "bold", letterSpacing: "1px" }}>
           ABOUT US
         </p>
 
@@ -227,7 +203,7 @@ function AboutUs() {
           }}
         >
           {members.map((person) => (
-            <Card key={person.name} person={person} isStudent={true} />
+            <Card key={person.name} person={person} isStudent />
           ))}
         </div>
       </div>
