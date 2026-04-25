@@ -14,7 +14,7 @@ import "./App.css";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/RP-Website-Group_25-26J-259">
       <div className="app-wrapper">
         <Header />
 
