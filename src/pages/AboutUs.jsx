@@ -1,8 +1,8 @@
 import React from "react";
 
 function AboutUs() {
-  const getImagePath = (imagePath) => {
-    return `${import.meta.env.BASE_URL}${imagePath.replace(/^\/+/, "")}`;
+  const getImagePath = (path) => {
+    return `${import.meta.env.BASE_URL}${path.replace(/^\/+/, "")}`;
   };
 
   const supervisors = [
@@ -92,6 +92,7 @@ function AboutUs() {
           height: "320px",
           objectFit: "cover",
           objectPosition: "top center",
+          background: "#111",
         }}
       />
 
@@ -174,6 +175,7 @@ function AboutUs() {
                 color: "#0077b5",
                 fontSize: "0.85rem",
                 fontWeight: "600",
+                textDecoration: "none",
               }}
             >
               🔗 LinkedIn
@@ -210,9 +212,9 @@ function AboutUs() {
             marginBottom: "80px",
           }}
         >
-          {supervisors.map((p, i) => (
-            <div key={i} style={{ width: "400px" }}>
-              <Card person={p} isStudent={false} />
+          {supervisors.map((person) => (
+            <div key={person.name} style={{ width: "400px" }}>
+              <Card person={person} isStudent={false} />
             </div>
           ))}
         </div>
@@ -224,8 +226,8 @@ function AboutUs() {
             gap: "25px",
           }}
         >
-          {members.map((p, i) => (
-            <Card key={i} person={p} isStudent={true} />
+          {members.map((person) => (
+            <Card key={person.name} person={person} isStudent={true} />
           ))}
         </div>
       </div>
