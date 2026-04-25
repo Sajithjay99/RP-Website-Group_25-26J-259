@@ -11,7 +11,8 @@ const DOCUMENTS = [
       "This document presents the initial topic assessment for our group research project, outlining the research objectives, scope, methodology, and expected outcomes.",
     author: "Group",
     type: "group",
-    driveUrl: "https://drive.google.com/file/d/1XT2Vprp0TsDbw4Onuec_Tsqdfcl_2x0d/view",
+    driveUrl: "https://drive.google.com/file/d/1XT2Vprp0TsDbw4Onuec_Tsqdfcl_2x0d/view?usp=drive_link",
+    
   },
   {
     id: "doc-2",
@@ -21,7 +22,7 @@ const DOCUMENTS = [
       "Facial Emotion Detection for Mental Health Monitoring",
     author: "H.M.S.M. Jayasooriya",
     type: "individual",
-    driveUrl: "https://drive.google.com/file/d/1TGAmVFxteRxGq0jOO2vseZM19bnZ3Uod/view",
+    driveUrl: "https://drive.google.com/file/d/1TGAmVFxteRxGq0jOO2vseZM19bnZ3Uod/view?usp=drive_link",
   },
   {
     id: "doc-3",
@@ -31,7 +32,7 @@ const DOCUMENTS = [
       " Music Listening–based Mental Health Prediction",
     author: "R.M.L.R. Dissanayaka",
     type: "individual",
-    driveUrl: "https://drive.google.com/file/d/1-tHjS5K2gblTadasjW1HWUZcWS1SBV1-/view",
+    driveUrl: "https://drive.google.com/file/d/1-tHjS5K2gblTadasjW1HWUZcWS1SBV1-/view?usp=drive_link",
   },
   {
     id: "doc-4",
@@ -41,7 +42,7 @@ const DOCUMENTS = [
       " Voice-Based Detection of Depression and Stress",
     author: "R.R.S.A. Jayasuriya",
     type: "individual",
-    driveUrl: "https://drive.google.com/file/d/1DDpkKQNRDhuCZUNFGUaKbc56hXVer98g/view",
+    driveUrl: "https://drive.google.com/file/d/1DDpkKQNRDhuCZUNFGUaKbc56hXVer98g/view?usp=drive_link",
   },
   {
     id: "doc-5",
@@ -51,7 +52,7 @@ const DOCUMENTS = [
       " EEG-based schizophrenia assessment",
     author: "W.A.O.H Wanasekara ",
     type: "individual",
-    driveUrl: "https://drive.google.com/file/d/1az37m5T5S8m2jIZvLwfers3ALIJCDAwk/view",
+    driveUrl: "https://drive.google.com/file/d/1az37m5T5S8m2jIZvLwfers3ALIJCDAwk/view?usp=drive_link",
   },
 
 
