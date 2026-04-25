@@ -23,7 +23,7 @@ function AboutUs() {
 
   const members = [
     {
-      name: "Jayasooriya H.M.S.S.M.",
+      name: "Jayasooriya H.M.S.M.",
       role: "Group Leader",
       institute: "Sri Lanka Institute of Information Technology",
       dept: "Information Technology",
