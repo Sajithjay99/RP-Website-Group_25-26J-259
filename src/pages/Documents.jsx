@@ -55,9 +55,93 @@ const DOCUMENTS = [
     driveUrl: "https://drive.google.com/file/d/1az37m5T5S8m2jIZvLwfers3ALIJCDAwk/view?usp=drive_link",
   },
 
+   {
+    id: "doc-6",
+    title: "Research paper-I",
+    date: "May 2026",
+    description:
+      "Facial Emotion Detection for Mental Health Monitoring",
+    author: "H.M.S.M. Jayasooriya",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1EcspnukMZ5qui88Ws5rg0CoMCL1biLs9/view?usp=drive_link",
+  },
+
+    {
+    id: "doc-7",
+    title: "Project Thesis-I",
+    date: "May 2026",
+    description:
+      "Facial Emotion Detection for Mental Health Monitoring",
+    author: "H.M.S.M. Jayasooriya",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1QGuJR1Ah4ywxvm27SxsV3g5ja-OOQGCv/view?usp=drive_link",
+  },
+   {
+    id: "doc-8",
+    title: "Research paper-II",
+    date: "May 2026",
+    description:
+      " Music Listening–based Mental Health Prediction",
+    author: "R.M.L.R. Dissanayaka",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1qSq5OS-T8Yk02sKUuYsneUnfwk3djeT_/view?usp=drive_link",
+  },
+
+    {
+    id: "doc-9",
+    title: "Project Thesis-II",
+    date: "May 2026",
+    description:
+      " Music Listening–based Mental Health Prediction",
+    author: "R.M.L.R. Dissanayaka",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1rOTi7hcQoyUOzfl6TGzpCqc0I9dsBQ5U/view?usp=drive_link",
+  },
+   {
+    id: "doc-10",
+    title: "Research paper-III",
+    date: "May 2026",
+    description:
+      " Voice-Based Detection of Depression and Stress",
+    author: "R.R.S.A. Jayasuriya",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1c7n4uvF2nsKapkDCCvqJTYxSGZzvPtKF/view?usp=drive_link",
+  },
+
+    {
+    id: "doc-11",
+    title: "Project Thesis-III",
+    date: "May 2026",
+    description:
+      " Voice-Based Detection of Depression and Stress",
+    author: "R.R.S.A. Jayasuriya",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1Sqw-sJ_Ov4AObZxTMZFQYXRZ_308d4Pm/view?usp=drive_link",
+  },
+
+    {
+    id: "doc-12",
+    title: "Research paper-IV",
+    date: "May 2026",
+    description:
+      " EEG-based schizophrenia assessment",
+    author: "W.A.O.H Wanasekara ",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/1PMjH9tT9sqbpILUAA3HL--_VNdfUBHhZ/view?usp=drive_link",
+  },
+  {
+    id: "doc-13",
+    title: "Project Thesis-IV",
+    date: "May 2026",
+    description:
+      " EEG-based schizophrenia assessment",
+    author: "W.A.O.H Wanasekara ",
+    type: "individual",
+    driveUrl: "https://drive.google.com/file/d/15JgI_c_zwVCzDhxxswGsoyFZLqwBwCtD/view?usp=drive_link",
+  },
 
   {
-    id: "doc-6",
+    id: "doc-14",
     title: "Final Research Report",
     date: "April 2026",
     description:
