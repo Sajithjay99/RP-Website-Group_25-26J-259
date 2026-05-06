@@ -1,8 +1,31 @@
 import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
+import emailjs from "@emailjs/browser";
 
 /* ─────────────────────────────────────────────────────────────
-   ContactUs — M-Track Research Website
+   ✉️  EmailJS Configuration
+   Replace these three values with your own from emailjs.com:
+     1. Dashboard → Email Services  → Service ID
+     2. Dashboard → Email Templates → Template ID
+     3. Dashboard → Account → General → Public Key
+───────────────────────────────────────────────────────────────── */
+const EMAILJS_SERVICE_ID  = "service_qym6be9";   
+const EMAILJS_TEMPLATE_ID = "template_yzg8eas"; 
+const EMAILJS_PUBLIC_KEY  = "qUpjGgvJGJnd-f-9k";
+
+/*
+  📋 Required EmailJS Template Variables
+  In your EmailJS template, use these placeholders:
+
+    {{from_name}}        – sender's full name
+    {{from_email}}       – sender's email address
+    {{affiliation}}      – sender's university / organisation
+    {{subject}}          – selected subject topic
+    {{message}}          – message body
+    {{reply_to}}         – maps to sender email for easy reply
+*/
+
+/* ─────────────────────────────────────────────────────────────
    Aesthetic: Dark sci / neural-signal lab
    Fonts: Manrope (display) + Inter (body)
    Accent: #00FFA3 cyan-green on deep navy
@@ -201,10 +224,17 @@ const STYLES = `
     border: 1px solid rgba(0,255,163,.25); background: rgba(0,255,163,.06);
     animation: fadeUp .4s ease;
   }
+  .cu-error {
+    display: flex; align-items: flex-start; gap: 14px;
+    margin-top: 24px; padding: 18px 20px; border-radius: 14px;
+    border: 1px solid rgba(255,80,80,.25); background: rgba(255,80,80,.06);
+    animation: fadeUp .4s ease;
+  }
   @keyframes fadeUp { from{opacity:0;transform:translateY(8px)} to{opacity:1;transform:none} }
-  .cu-success-icon { font-size: 20px; flex-shrink: 0; }
-  .cu-success-text { font-size: 13px; line-height: 1.7; color: var(--text); }
+  .cu-success-icon, .cu-error-icon { font-size: 20px; flex-shrink: 0; }
+  .cu-success-text, .cu-error-text { font-size: 13px; line-height: 1.7; color: var(--text); }
   .cu-success-text strong { color: var(--green); display: block; margin-bottom: 4px; font-family: var(--ff-d); }
+  .cu-error-text strong { color: #ff6b6b; display: block; margin-bottom: 4px; font-family: var(--ff-d); }
 
   .cu-sidebar { display: flex; flex-direction: column; gap: 20px; }
 
@@ -268,7 +298,7 @@ function Terminal() {
   const lines = [
     { prompt: "$", key: "module", val: "contact_us.init()" },
     { prompt: "→", key: "status", val: '"ready to receive"' },
-    { prompt: "→", key: "email", val: '"mtrack@university.lk"' },
+    { prompt: "→", key: "email", val: '"mtrack@sliit.lk"' },
     { prompt: "→", key: "location", val: '"Colombo, Sri Lanka"' },
     { prompt: "→", key: "response_time", val: '"< 48 hours"' },
     { prompt: "→", key: "modules", val: "[facial, voice, music, eeg]" },
@@ -308,16 +338,47 @@ function Terminal() {
 
 export default function ContactUs() {
   const r = useReveal();
-  const [form, setForm] = useState({ name: "", email: "", affiliation: "", subject: "", message: "" });
-  const [sent, setSent] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const formRef = useRef(null);
+  const [form, setForm] = useState({
+    name: "", email: "", affiliation: "", subject: "", message: "",
+  });
+  const [status, setStatus] = useState("idle"); // idle | loading | success | error
+  const [errorMsg, setErrorMsg] = useState("");
 
   const handle = (e) => setForm({ ...form, [e.target.name]: e.target.value });
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    setLoading(true);
-    setTimeout(() => { setLoading(false); setSent(true); }, 1800);
+    setStatus("loading");
+    setErrorMsg("");
+
+    // EmailJS template params — these names must match your template variables
+    const templateParams = {
+      from_name:   form.name,
+      from_email:  form.email,
+      affiliation: form.affiliation || "N/A",
+      subject:     form.subject,
+      message:     form.message,
+      reply_to:    form.email,
+    };
+
+    try {
+      await emailjs.send(
+        EMAILJS_SERVICE_ID,
+        EMAILJS_TEMPLATE_ID,
+        templateParams,
+        EMAILJS_PUBLIC_KEY
+      );
+      setStatus("success");
+      setForm({ name: "", email: "", affiliation: "", subject: "", message: "" });
+    } catch (err) {
+      console.error("EmailJS error:", err);
+      setErrorMsg(
+        err?.text ||
+        "Something went wrong. Please try again or email us directly at mtrack@sliit.lk."
+      );
+      setStatus("error");
+    }
   };
 
   const quickLinks = [
@@ -332,6 +393,9 @@ export default function ContactUs() {
     { icon: "📍", label: "Location", val: "SLIIT, Malabe\nColombo, Sri Lanka" },
     { icon: "⏱", label: "Response Time", val: "Within 48 hours\nWeekdays only" },
   ];
+
+  const isLoading = status === "loading";
+  const isSent    = status === "success";
 
   return (
     <main className="cu-page">
@@ -390,7 +454,7 @@ export default function ContactUs() {
             </p>
           </div>
 
-          <form onSubmit={submit}>
+          <form ref={formRef} onSubmit={submit}>
             <div className="cu-row">
               <div className="cu-field">
                 <label className="cu-label">Full Name <span>*</span></label>
@@ -447,8 +511,8 @@ export default function ContactUs() {
               />
             </div>
 
-            <button className="cu-submit" type="submit" disabled={loading || sent}>
-              {loading ? (
+            <button className="cu-submit" type="submit" disabled={isLoading || isSent}>
+              {isLoading ? (
                 <>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
                     <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
@@ -457,7 +521,7 @@ export default function ContactUs() {
                   </svg>
                   Sending…
                 </>
-              ) : sent ? (
+              ) : isSent ? (
                 <> ✓ Message Sent </>
               ) : (
                 <>
@@ -469,13 +533,23 @@ export default function ContactUs() {
               )}
             </button>
 
-            {sent && (
+            {isSent && (
               <div className="cu-success">
                 <div className="cu-success-icon">✅</div>
                 <div className="cu-success-text">
                   <strong>Message received — thank you!</strong>
                   A member of the M-Track team will get back to you within 48 hours on weekdays.
                   Check your inbox for a confirmation.
+                </div>
+              </div>
+            )}
+
+            {status === "error" && (
+              <div className="cu-error">
+                <div className="cu-error-icon">⚠️</div>
+                <div className="cu-error-text">
+                  <strong>Failed to send message</strong>
+                  {errorMsg}
                 </div>
               </div>
             )}

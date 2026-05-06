@@ -39,10 +39,10 @@ const SLIDES = [
     title: "Final Presentation",
     date: "April 2026",
     description:
-      "TO DO:Final project presentation slides summarising the complete research journey, results, contributions, conclusions, and recommendations for future work.",
+      "Final project presentation slides summarising the complete research journey, results, contributions, conclusions, and recommendations for future work.",
     author: "Group",
     type: "group",
-    driveUrl: "",
+    driveUrl: "https://docs.google.com/presentation/d/1bqSp9zp_ICknoprcAvZY8w5PBbD4TnKE/edit?usp=drive_link&ouid=111138872678092402720&rtpof=true&sd=true",
   },
 ];
 
